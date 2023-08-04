@@ -1,10 +1,10 @@
 import styles from './Home.module.css'
 import Card from '../Card/Card'
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-function Home({allDogs}) {
+function Home({ allDogs }) {
+    console.log(allDogs);
     return (
         <div>
             {allDogs?.map(dog => {
@@ -12,7 +12,12 @@ function Home({allDogs}) {
                     <Card
                         key={dog.id}
                         id={dog.id}
+                        image={dog.image.url}
                         name={dog.name}
+                        height={dog.height.metric}
+                        weight={dog.weight.metric}
+                        temperaments={dog.temperaments}
+                        life_span={dog.life_span}
                     />
                 )
             })}
@@ -22,7 +27,8 @@ function Home({allDogs}) {
 
 export function mapStateToProps(state) {
     return {
-        allDogs: state.allDogs
+        allDogs: state.allDogs,
+        temperaments: state.temperaments
     }
 }
 

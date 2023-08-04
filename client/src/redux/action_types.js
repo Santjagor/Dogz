@@ -1,1 +1,2 @@
 export const ADD_ALL_DOGS = "ADD_ALL_DOGS"
+export const ADD_TEMPERAMENTS = "ADD_TEMPERAMENTS"

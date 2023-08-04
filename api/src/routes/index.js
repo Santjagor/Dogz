@@ -47,12 +47,12 @@ router.get('/dogs/:id', async (req, res) => {
 })
 
 router.post('/dogs', async (req, res) => {
-    const { name, image, height, weight, lifeSpan, temperaments } = req.body
-    if (![name, image, height, weight, lifeSpan].every(Boolean)) {
+    const { name, image, height, weight, life_span, temperaments } = req.body
+    if (![name, image, height, weight, life_span].every(Boolean)) {
         return res.status(400).json({ error: "Missing data" })
     }
     try {
-        const dogPosted = await postDog(name, image, height, weight, lifeSpan, temperaments)
+        const dogPosted = await postDog(name, image, height, weight, life_span, temperaments)
         res.status(200).json(dogPosted)
     } catch (error) {
         res.status(500).json({ message: error.message })

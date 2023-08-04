@@ -2,7 +2,7 @@ const axios = require('axios')
 const URL = "https://api.thedogapi.com/v1/breeds"
 const { Dog, Temperament } = require(".././db")
 
-const getDogs = async (req, res) => {
+const getDogs = async () => {
     const allDogs = []
     try {
         const apiResponse = await axios(`${URL}`)
@@ -43,7 +43,7 @@ const getDogsById = async (id) => {
     }
 }
 
-const postDog = async (name, image, height, weight, lifeSpan, temperaments) => {
+const postDog = async (name, image, height, weight, life_span, temperaments) => {
     try {
         const dogCreated = await Dog.findOrCreate({
             where: {
@@ -51,7 +51,7 @@ const postDog = async (name, image, height, weight, lifeSpan, temperaments) => {
                 image,
                 height,
                 weight,
-                lifeSpan,
+                life_span,
             },
         })
         if (!dogCreated[1]) {

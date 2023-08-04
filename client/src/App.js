@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import { addAllDogs } from './redux/actions';
+import { addAllDogs, addTemperaments } from './redux/actions';
 import { connect } from 'react-redux';
 import Navbar from './components/Navbar/Navbar'
 import Landing from './components/Landing/Landing';
@@ -10,7 +10,7 @@ import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form'
 import { useEffect } from 'react';
 
-function App({ allDogs, addAllDogs }) {
+function App({ addAllDogs, addTemperaments }) {
   const navigate = useNavigate()
   const access = () => {
     navigate('/home')
@@ -18,6 +18,7 @@ function App({ allDogs, addAllDogs }) {
 
   useEffect(() => {
     addAllDogs()
+    addTemperaments()
   }, [])
 
   let location = useLocation()
@@ -38,15 +39,18 @@ export function mapDispatchToProps(dispatch) {
   return {
     addAllDogs: function () {
       dispatch(addAllDogs())
+    },
+    addTemperaments: function () {
+      dispatch(addTemperaments())
     }
   }
 }
 
 export function mapStateToProps(state) {
   return {
-    allDogs: state.allDogs
+    allDogs: state.allDogs,
+    temperaments: state.temperaments
   }
 }
 
-// export default App;
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSONB,
       allowNull: false,
     },
     name: {
@@ -18,15 +18,15 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     height: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.JSONB,
       allowNull: false,
     },
     weight: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.JSONB,
       allowNull: false,
     },
-    lifeSpan: {
-      type: DataTypes.INTEGER,
+    life_span: {
+      type: DataTypes.STRING,
       allowNull: false,
     }
   });
