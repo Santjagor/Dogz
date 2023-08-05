@@ -4,7 +4,8 @@ import { useState } from "react"
 import axios from 'axios';
 const endpoint = 'http://localhost:3001/dogs'
 
-function Form({ temperaments }) {
+function Form(props) {
+    const allTemperaments = props.temperaments
     const [dogData, setDogData] = useState({
         name: "",
         height: {},
@@ -25,15 +26,23 @@ function Form({ temperaments }) {
 
     function handleChange(event) {
         const property = event.target.name
-        let value = event.target.value
+        let value = {}
         if (property === 'height' || property === 'weight') {
-            value = { metric: value }
+            value = { metric: event.target.value }
         }
         if (property === 'image') {
-            value = { url: value }
+            value = { url: event.target.value }
         }
         if (property === 'temperaments') {
-            console.log(event.target.id);
+            value = [...dogData.temperaments]
+            if (event.target.checked) {
+                value.push(Number(event.target.id))
+            } else {
+                value = value.filter(temp => temp !== Number(event.target.id))
+            }
+        }
+        if (property === 'name' || property === 'life_span') {
+            value = event.target.value
         }
         setDogData({
             ...dogData,
@@ -43,9 +52,10 @@ function Form({ temperaments }) {
 
     async function handleSubmit(event) {
         event.preventDefault()
+        console.log(dogData);
         // try {
         //     const response = await axios.post(endpoint, dogData)
-        //     alert(response.data);
+        //     alert(`${response.data.name} ${response.data.temperaments}`);
         // } catch (error) {
         //     alert(error.message)
         // }
@@ -72,14 +82,12 @@ function Form({ temperaments }) {
                 <div>Temperaments:</div>
                 <br />
                 <div>
-                    {temperaments.map(temperament => {
+                    {allTemperaments.map(temperament => {
                         return (
                             <div key={temperament.id}>
                                 <input id={temperament.id} type="checkbox" name="temperaments" onChange={handleChange} />
-                                {temperament.name}
+                                {temperament.name} {temperament.id}
                             </div>
-                            //event.target.checked = true/false
-                            //event.target.id = id
                         )
                     })}
                 </div>
