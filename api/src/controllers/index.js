@@ -55,7 +55,7 @@ const postDog = async (name, image, height, weight, life_span, temperaments) => 
             },
         })
         if (!dogCreated[1]) {
-            throw Error("Dog already exist")
+            return `Dog breed "${name}" already exist`
         }
         await dogCreated[0].addTemperaments(temperaments)
         return dogCreated[0]
