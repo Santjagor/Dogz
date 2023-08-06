@@ -48,7 +48,7 @@ export function mapDispatchToProps(dispatch) {
 
 export function mapStateToProps(state) {
   return {
-    allDogs: state.allDogs,
+    dogs: state.dogs,
     temperaments: state.temperaments
   }
 }

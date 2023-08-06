@@ -1,7 +1,7 @@
 import { ADD_ALL_DOGS, ADD_TEMPERAMENTS } from "./action_types";
 
 const initialState = {
-    allDogs: [],
+    dogs: [],
     temperaments: [],
 }
 
@@ -10,7 +10,7 @@ function rootReducer(state = initialState, { type, payload }) {
         case ADD_ALL_DOGS:
             return {
                 ...state,
-                allDogs: payload
+                dogs: payload
             }
         case ADD_TEMPERAMENTS:
             return {

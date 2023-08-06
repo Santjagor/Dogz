@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 
 
 
-function Home({ allDogs }) {
-    console.log(allDogs);
+function Home({ dogs }) {
     return (
         <div>
-            {allDogs?.map(dog => {
+            {dogs?.map(dog => {
                 if (dog.on_db) {
                     return (
                         <Card
@@ -44,7 +43,7 @@ function Home({ allDogs }) {
 
 export function mapStateToProps(state) {
     return {
-        allDogs: state.allDogs,
+        dogs: state.dogs,
         temperaments: state.temperaments
     }
 }
