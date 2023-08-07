@@ -18,14 +18,9 @@ router.get('/dogs', async (req, res) => {
 
 router.get('/dogs/search?', async (req, res) => {
     const { name } = req.query
-    if (!name) return res.status(400).json({ error: "Missing data" })
     try {
         const dogFound = await getDogsByQuery(name)
-        if (dogFound.length > 0) {
-            res.status(200).json(dogFound)
-        } else {
-            res.status(400).json({ error: "Dog not found" })
-        }
+        res.status(200).json(dogFound)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }

@@ -1,13 +1,18 @@
 import styles from './SearchBar.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
+import { searchByName } from '../../redux/actions';
 
 export default function SearchBar() {
     const dispatch = useDispatch()
 
     const [data, setData] = useState({
-        name: ""
+        search: ""
     })
+
+    useEffect(() => {
+        dispatch(searchByName(data.search))
+    }, [data])
 
     function handleChange(event) {
         const property = event.target.name
@@ -15,13 +20,11 @@ export default function SearchBar() {
         setData({
             [property]: value
         })
-
     }
 
     return (
         <div>
             <input type="text" name="search" onChange={handleChange} />
-            <button>SEARCH</button>
         </div>
     )
 }

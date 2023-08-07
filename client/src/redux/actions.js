@@ -16,11 +16,11 @@ export function addAllDogs() {
     }
 }
 
-export function searchByName(){
-    const endpoint = 'http://localhost:3001/dogs/search?'
+export function searchByName(name){
+    const endpoint = 'http://localhost:3001/dogs/search?name='
     return async (dispatch) => {
         try {
-            const response = await axios(endpoint)
+            const response = await axios(`${endpoint}${name}`)
             return dispatch({
                 type: ADD_ALL_DOGS,
                 payload: response.data
