@@ -3,8 +3,6 @@ import Card from '../Card/Card'
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-
-
 function Home({ dogs }) {
     return (
         <div>

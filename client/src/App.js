@@ -10,7 +10,7 @@ import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form'
 import { useEffect } from 'react';
 
-function App({ addAllDogs, addTemperaments }) {
+function App({ addAllDogs, addTemperaments, temperaments }) {
   const navigate = useNavigate()
   const access = () => {
     navigate('/home')

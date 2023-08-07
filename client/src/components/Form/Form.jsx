@@ -88,25 +88,25 @@ function Form(props) {
             <p>CREATE YOUR OWN BREED</p>
             <form onSubmit={handleSubmit}>
                 <div>Breed Name:</div>
-                <input type="text" name="name" onChange={handleChange} />
+                <input type="text" name="name" value={dogData.name} onChange={handleChange} />
 
                 <div>Height:</div>
-                <input type="text" name="min_height" placeholder='Min' onChange={handleChange} />
+                <input type="text" name="min_height" placeholder='Min' value={dogData.min_height} onChange={handleChange} />
                 <span> - </span>
-                <input type="text" name="max_height" placeholder='Max' onChange={handleChange} />
+                <input type="text" name="max_height" placeholder='Max' value={dogData.max_height} onChange={handleChange} />
 
                 <div>Weight:</div>
-                <input type="text" name="min_weight" placeholder='Min' onChange={handleChange} />
+                <input type="text" name="min_weight" placeholder='Min' value={dogData.min_weight} onChange={handleChange} />
                 <span> - </span>
-                <input type="text" name="max_weight" placeholder='Max' onChange={handleChange} />
+                <input type="text" name="max_weight" placeholder='Max' value={dogData.max_weight} onChange={handleChange} />
 
                 <div>Life Span:</div>
-                <input type="text" name="min_life_span" placeholder='Min' onChange={handleChange} />
+                <input type="text" name="min_life_span" placeholder='Min' value={dogData.min_life_span} onChange={handleChange} />
                 <span> - </span>
-                <input type="text" name="max_life_span" placeholder='Max' onChange={handleChange} />
+                <input type="text" name="max_life_span" placeholder='Max' value={dogData.max_life_span} onChange={handleChange} />
 
                 <div>Image:</div>
-                <input type="text" name="image" onChange={handleChange} />
+                <input type="text" name="image" value={dogData.image} onChange={handleChange} />
 
                 <div>Temperaments:</div>
                 <br />

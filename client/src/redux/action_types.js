@@ -1,2 +1,3 @@
 export const ADD_ALL_DOGS = "ADD_ALL_DOGS"
 export const ADD_TEMPERAMENTS = "ADD_TEMPERAMENTS"
+export const SEARCH_BY_NAME = "SEARCH_BY_NAME"
