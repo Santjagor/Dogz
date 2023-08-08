@@ -1,5 +1,5 @@
 import styles from './SearchOptions.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { addAllDogs, searchByName, filterByOrigin, filterByTemperaments, alphabeticOrder, weightOrder } from '../../redux/actions';
 

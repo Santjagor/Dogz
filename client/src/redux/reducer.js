@@ -1,4 +1,4 @@
-import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, SEARCH_BY_NAME, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, FILTER_BY_ORIGIN } from "./action_types";
+import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, SEARCH_BY_NAME, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, FILTER_BY_ORIGIN, CLEAR_DOGS } from "./action_types";
 
 const initialState = {
     dogs: [],
@@ -51,31 +51,36 @@ function rootReducer(state = initialState, { type, payload }) {
             }
 
         case ALPHABETIC_ORDER:
-            let alphOrder = []
+            let aOrder = []
             if (payload === 1) {
-                alphOrder = state.dogs.sort(function (a, b) {
+                aOrder = state.dogs.sort(function (a, b) {
                     if (a.name > b.name) { return 1 }
                     if (a.name < b.name) { return -1 }
                 })
             }
             if (payload === -1) {
-                alphOrder = state.dogs.sort(function (a, b) {
+                aOrder = state.dogs.sort(function (a, b) {
                     if (a.name < b.name) { return 1 }
                     if (a.name > b.name) { return -1 }
                 })
             }
             return {
                 ...state,
-                dogs: alphOrder
+                dogs: aOrder
             }
 
         case WEIGHT_ORDER:
-            let weigOrder = []
-            weigOrder = state.dogs.sort(function (a, b) {
-                let aux1 = a.weight.metric.split(" - ")
+            let wOrder = []
+            wOrder = state.dogs.sort(function (a, b) {
+
+                let aux1 = []
+                let aux2 = []
+
+                a.on_db ? aux1 = a.weight.split(" - ") : aux1 = a.weight.metric.split(" - ")
                 if (aux1[aux1.length - 1] === 'NaN') aux1[aux1.length - 1] = -1
-                let aux2 = b.weight.metric.split(" - ")
+                b.on_db ? aux2 = b.weight.split(" - ") : aux2 = b.weight.metric.split(" - ")
                 if (aux2[aux2.length - 1] === 'NaN') aux2[aux2.length - 1] = -1
+
                 if (payload === 1) {
                     if (Number(aux1[aux1.length - 1]) > Number(aux2[aux2.length - 1])) { return 1 }
                     if (Number(aux1[aux1.length - 1]) < Number(aux2[aux2.length - 1])) { return -1 }
@@ -87,7 +92,7 @@ function rootReducer(state = initialState, { type, payload }) {
             })
             return {
                 ...state,
-                dogs: weigOrder
+                dogs: wOrder
             }
 
         case ADD_TEMPERAMENTS:

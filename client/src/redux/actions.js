@@ -1,4 +1,4 @@
-import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, SEARCH_BY_NAME } from "./action_types";
+import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, SEARCH_BY_NAME, CLEAR_DOGS } from "./action_types";
 import axios from "axios";
 
 export function addAllDogs() {
@@ -112,8 +112,4 @@ export function addTemperaments() {
             alert(error.message)
         }
     }
-}
-
-export function clearDogs(){
-    
 }
