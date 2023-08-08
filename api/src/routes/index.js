@@ -18,6 +18,9 @@ router.get('/dogs', async (req, res) => {
 
 router.get('/dogs/search?', async (req, res) => {
     const { name } = req.query
+    if (!name || name === "") {
+        return res.status(400).json({ message: "Missing data" })
+    }
     try {
         const dogFound = await getDogsByQuery(name)
         res.status(200).json(dogFound)

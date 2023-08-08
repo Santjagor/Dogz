@@ -1,12 +1,12 @@
 import styles from './Form.module.css'
-import { connect } from 'react-redux';
-import { useState, useEffect } from "react"
-import axios from 'axios';
+import { connect, useDispatch } from 'react-redux';
+import { useState } from "react"
 import validate from './validations';
-const endpoint = 'http://localhost:3001/dogs'
+import { createDog } from '../../redux/actions';
 
 function Form(props) {
     const allTemperaments = props.temperaments
+    const dispatch = useDispatch()
     const [dogData, setDogData] = useState({
         name: "",
         min_height: "",
@@ -58,7 +58,7 @@ function Form(props) {
     async function handleSubmit(event) {
         event.preventDefault()
         if (checkErrors()) {
-            const createdDog = {
+            const newDog = {
                 name: dogData.name,
                 height: `${dogData.min_height} - ${dogData.max_height}`,
                 weight: `${dogData.min_weight} - ${dogData.max_weight}`,
@@ -66,20 +66,10 @@ function Form(props) {
                 image: dogData.image,
                 temperaments: dogData.temperaments,
             }
-            try {
-                const response = await axios.post(endpoint, createdDog)
-                console.log(response.data);
-                if (response.data.name) {
-                    alert(`"${response.data.name}" breed created!`)
-                    window.location.reload()
-                } else {
-                    alert(response.data)
-                }
-            } catch (error) {
-                alert(error.message)
-            }
+            dispatch(createDog(newDog))
+            // window.location.reload()
         } else {
-            alert("Incorrect Data")
+            alert("Missing or incorrect Data")
         }
     }
 

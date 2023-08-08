@@ -1,8 +1,10 @@
 import styles from './Navbar.module.css'
-import SearchBar from '../SearchBar/SearchBar';
+// import SearchBar from '../SearchBar/SearchBar'
+// import FilterByTemperaments from '../FilterByTemperaments/FilterByTemperaments';
+import SearchOptions from '../SearchOptions/SearchOptions'
 import { Link } from 'react-router-dom';
 
-export default function Navbar({ access }) {
+export default function Navbar() {
     return (
         <div className={styles.container}>
             <Link to={`/home`}>
@@ -11,7 +13,7 @@ export default function Navbar({ access }) {
             <Link to={`/form`}>
                 <button>CREATE</button>
             </Link>
-            <SearchBar></SearchBar>
+            <SearchOptions></SearchOptions>
         </div>
     )
 }

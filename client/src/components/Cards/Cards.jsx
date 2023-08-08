@@ -4,9 +4,13 @@ import { useEffect, useState } from 'react';
 
 function Cards({ dogs }) {
 
+    useEffect(() => {
+        console.log(dogs);
+    }, [dogs])
+
     return (
         <div>
-            {dogs.length <= 0 ? <p>Dogs not found</p> : <></>}
+            {dogs?.length <= 0 ? <p>Dogs not found</p> : <></>}
             {dogs?.map(dog => {
                 if (dog.on_db) {
                     return (
@@ -43,7 +47,6 @@ function Cards({ dogs }) {
 export function mapStateToProps(state) {
     return {
         dogs: state.dogs,
-        temperaments: state.temperaments
     }
 }
 

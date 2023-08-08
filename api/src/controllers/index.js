@@ -26,12 +26,8 @@ const getDogs = async () => {
 const getDogsByQuery = async (name) => {
     try {
         const allDogs = await getDogs()
-        if (!name) {
-            return allDogs
-        } else {
-            const dogsFound = allDogs.filter(dog => dog.name.toLowerCase().startsWith(name.toLowerCase()))
-            return dogsFound
-        }
+        const dogsFound = allDogs.filter(dog => dog.name.toLowerCase().startsWith(name.toLowerCase()))
+        return dogsFound
     } catch (error) {
         throw Error(error.message)
     }
