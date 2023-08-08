@@ -113,3 +113,7 @@ export function addTemperaments() {
         }
     }
 }
+
+export function clearDogs(){
+    
+}

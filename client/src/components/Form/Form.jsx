@@ -67,7 +67,6 @@ function Form(props) {
                 temperaments: dogData.temperaments,
             }
             dispatch(createDog(newDog))
-            // window.location.reload()
         } else {
             alert("Missing or incorrect Data")
         }

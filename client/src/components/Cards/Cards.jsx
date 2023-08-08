@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 
 function Cards({ dogs }) {
 
+    const [updated, setUpdated] = useState()
+
     useEffect(() => {
-        console.log(dogs);
+        setUpdated({ updated: true })
     }, [dogs])
 
     return (
