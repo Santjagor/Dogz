@@ -1,18 +1,13 @@
 import styles from './Pagination.module.css'
 
-export default function Pagination({ dogs, dogsPerPage, changePage }) {
-    const pages = []
-    for (let i = 0; i < Math.ceil(dogs.length / dogsPerPage); i++) {
-        pages.push(i + 1)
-    }
-
+export default function Pagination({ page, changePage, totalPages }) {
     return (
         <div>
-            {pages.map(p => {
-                return (
-                    <button key={p} onClick={() => { changePage(p) }}>{p}</button>
-                )
-            })}
+            <button onClick={() => { changePage(1) }}>{"<<"}</button>
+            <button onClick={() => { changePage(page - 1) }}>{"<"}</button>
+            <span>{`${page} of ${totalPages[totalPages.length - 1]}`}</span>
+            <button onClick={() => { changePage(page + 1) }}>{">"}</button>
+            <button onClick={() => { changePage(totalPages.length) }}>{">>"}</button>
         </div>
     )
 }

@@ -2,7 +2,6 @@ import styles from './Home.module.css'
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Cards from '../Cards/Cards';
-import Card from '../Card/Card';
 import Pagination from '../Pagination/Pagination';
 
 
@@ -13,9 +12,15 @@ export default function Home() {
     const dogsPerPage = 8
     const last = page * dogsPerPage
     const first = last - dogsPerPage
+    const totalPages = []
+    for (let i = 0; i < Math.ceil(dogs.length / dogsPerPage); i++) {
+        totalPages.push(i + 1)
+    }
 
     function changePage(p) {
-        setPage(p)
+        if (p > 0 && p <= totalPages.length ) {
+            setPage(p)
+        }
     }
 
     useEffect(() => {
@@ -29,6 +34,8 @@ export default function Home() {
             <Pagination
                 dogs={dogs}
                 dogsPerPage={dogsPerPage}
+                page={page}
+                totalPages={totalPages}
                 changePage={changePage}
             />
         </div>
