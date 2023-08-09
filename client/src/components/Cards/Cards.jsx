@@ -1,15 +1,7 @@
 import Card from '../Card/Card'
-import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-function Cards({ dogs }) {
-
-    const [updated, setUpdated] = useState()
-
-    useEffect(() => {
-        setUpdated({ updated: true })
-    }, [dogs])
-
+export default function Cards({ dogs }) {
     return (
         <div>
             {dogs?.length <= 0 ? <p>Dogs not found</p> : <></>}
@@ -45,11 +37,3 @@ function Cards({ dogs }) {
         </div>
     )
 }
-
-export function mapStateToProps(state) {
-    return {
-        dogs: state.dogs,
-    }
-}
-
-export default connect(mapStateToProps)(Cards)

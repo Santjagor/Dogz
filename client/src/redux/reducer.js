@@ -66,7 +66,7 @@ function rootReducer(state = initialState, { type, payload }) {
             }
             return {
                 ...state,
-                dogs: aOrder
+                dogs: [...aOrder]
             }
 
         case WEIGHT_ORDER:
@@ -92,7 +92,7 @@ function rootReducer(state = initialState, { type, payload }) {
             })
             return {
                 ...state,
-                dogs: wOrder
+                dogs: [...wOrder]
             }
 
         case ADD_TEMPERAMENTS:

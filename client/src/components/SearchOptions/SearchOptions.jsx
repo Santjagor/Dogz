@@ -53,16 +53,16 @@ function SearchOptions({ temperaments }) {
             await dispatch(addAllDogs())
         }
         if (filters.alphabetic && filters.alphabetic !== 0) {
-            await dispatch(alphabeticOrder(filters.alphabetic))
+            dispatch(alphabeticOrder(filters.alphabetic))
         }
         if (filters.weight && filters.weight !== 0) {
-            await dispatch(weightOrder(filters.weight))
+            dispatch(weightOrder(filters.weight))
         }
         if (filters.origin && filters.origin !== "all") {
-            await dispatch(filterByOrigin(filters.origin))
+            dispatch(filterByOrigin(filters.origin))
         }
         if (filters.temperament && filters.temperament !== "all") {
-            await dispatch(filterByTemperaments(filters.temperament))
+            dispatch(filterByTemperaments(filters.temperament))
         }
     }
 
