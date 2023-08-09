@@ -1,11 +1,13 @@
 import styles from './Form.module.css'
 import { connect, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 import { useState } from "react"
 import validate from './validations';
 import { createDog } from '../../redux/actions';
 
 function Form(props) {
     const allTemperaments = props.temperaments
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const [dogData, setDogData] = useState({
         name: "",

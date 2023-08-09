@@ -1,17 +1,18 @@
 import styles from './SearchOptions.module.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { addAllDogs, searchByName, filterByOrigin, filterByTemperaments, alphabeticOrder, weightOrder } from '../../redux/actions';
 
 function SearchOptions({ temperaments }) {
     const dispatch = useDispatch()
-    const [filters, setFilters] = useState({
+    const defaultFilters = {
         name: "",
         origin: "all",
         temperament: "all",
-        alphabetic: 1,
+        alphabetic: 0,
         weight: 0,
-    })
+    }
+    const [filters, setFilters] = useState(defaultFilters)
 
     function handleChange(event) {
         const property = event.target.name
@@ -39,6 +40,10 @@ function SearchOptions({ temperaments }) {
             alphabetic: value1,
             weight: value2
         })
+    }
+
+    function clearFilters() {
+        setFilters(defaultFilters)
     }
 
     async function handleSubmit() {
@@ -88,6 +93,7 @@ function SearchOptions({ temperaments }) {
             <button name="alphabetic" onClick={handleSort}>A-Z</button>
             <button name="weight" onClick={handleSort}>W</button>
 
+            <button onClick={clearFilters}>CLEAR</button>
             <button onClick={handleSubmit}>SEARCH</button>
 
         </div>
