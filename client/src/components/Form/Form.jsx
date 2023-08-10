@@ -1,15 +1,15 @@
 import styles from './Form.module.css'
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { useState } from "react"
 import validate from './validations';
-import { createDog } from '../../redux/actions';
+import { createDog, addAllDogs } from '../../redux/actions';
 
-function Form(props) {
-    const allTemperaments = props.temperaments
+export default function Form() {
+    const allTemperaments = useSelector((state) => state.temperaments)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [dogData, setDogData] = useState({
+    const defaultDogData = {
         name: "",
         min_height: "",
         max_height: "",
@@ -19,8 +19,8 @@ function Form(props) {
         max_life_span: "",
         image: "",
         temperaments: ""
-    })
-
+    }
+    const [dogData, setDogData] = useState(defaultDogData)
     const [errors, setErrors] = useState({})
 
     function checkErrors() {
@@ -39,7 +39,6 @@ function Form(props) {
     function handleChange(event) {
         let property = event.target.name
         let value = event.target.value
-
         if (property === 'temperaments') {
             value = [...dogData.temperaments]
             if (event.target.checked) {
@@ -48,13 +47,12 @@ function Form(props) {
                 value = value.filter(temp => temp !== Number(event.target.id))
             }
         }
-
         setDogData({
             ...dogData,
             [property]: value
         })
-
         setErrors(validate({ ...dogData, [property]: value }))
+        console.log(event.target.checked);
     }
 
     async function handleSubmit(event) {
@@ -69,6 +67,8 @@ function Form(props) {
                 temperaments: dogData.temperaments,
             }
             dispatch(createDog(newDog))
+            dispatch(addAllDogs())
+            setDogData(defaultDogData)
         } else {
             alert("Missing or incorrect Data")
         }
@@ -102,11 +102,11 @@ function Form(props) {
                 <div>Temperaments:</div>
                 <br />
                 <div>
-                    {allTemperaments.map(temperament => {
+                    {allTemperaments?.map(temperament => {
                         return (
                             <div key={temperament.id}>
                                 <input id={temperament.id} type="checkbox" name="temperaments" onChange={handleChange} />
-                                {temperament.name} {temperament.id}
+                                {temperament.name}
                             </div>
                         )
                     })}
@@ -117,11 +117,3 @@ function Form(props) {
         </div>
     )
 }
-
-export function mapStateToProps(state) {
-    return {
-        temperaments: state.temperaments
-    }
-}
-
-export default connect(mapStateToProps)(Form);

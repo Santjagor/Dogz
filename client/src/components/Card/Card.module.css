@@ -1,0 +1,17 @@
+.container{
+    background-color: #573b2f;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 18vw;
+    min-height: 150px;
+    max-height: 300px;
+    width: 18vw;
+    min-width: 150px;
+    max-width: 300px;
+    overflow: hidden;
+}
+
+.image{
+    width: 300px;
+}

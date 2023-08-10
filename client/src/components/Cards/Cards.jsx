@@ -1,9 +1,10 @@
+import styles from './Cards.module.css'
 import Card from '../Card/Card'
 import { useEffect, useState } from 'react';
 
 export default function Cards({ dogs }) {
     return (
-        <div>
+        <div className={styles.container}>
             {dogs?.length <= 0 ? <p>Dogs not found</p> : <></>}
             {dogs?.map(dog => {
                 if (dog.on_db) {

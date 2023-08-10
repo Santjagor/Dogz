@@ -1,10 +1,11 @@
 import styles from './SearchOptions.module.css'
 import { useState } from 'react'
-import { connect, useDispatch } from 'react-redux';
-import { addAllDogs, searchByName, filterByOrigin, filterByTemperaments, alphabeticOrder, weightOrder } from '../../redux/actions';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { addAllDogs, searchByName, filterByOrigin, filterByTemperaments, alphabeticOrder, weightOrder, clearFilters } from '../../redux/actions';
 
-function SearchOptions({ temperaments }) {
+export default function SearchOptions() {
     const dispatch = useDispatch()
+    const temperaments = useSelector((state) => state.temperaments)
     const defaultFilters = {
         name: "",
         origin: "all",
@@ -42,11 +43,13 @@ function SearchOptions({ temperaments }) {
         })
     }
 
-    function clearFilters() {
+    function clear() {
         setFilters(defaultFilters)
+        dispatch(clearFilters())
     }
 
     async function handleSubmit() {
+        dispatch(clearFilters())
         if (filters.name && filters.name !== "") {
             await dispatch(searchByName(filters.name))
         } else {
@@ -93,17 +96,9 @@ function SearchOptions({ temperaments }) {
             <button name="alphabetic" onClick={handleSort}>A-Z</button>
             <button name="weight" onClick={handleSort}>W</button>
 
-            <button onClick={clearFilters}>CLEAR</button>
+            <button onClick={clear}>CLEAR</button>
             <button onClick={handleSubmit}>SEARCH</button>
 
         </div>
     )
 }
-
-export function mapStateToProps(state) {
-    return {
-        temperaments: state.temperaments
-    }
-}
-
-export default connect(mapStateToProps)(SearchOptions);

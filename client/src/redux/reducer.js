@@ -1,8 +1,9 @@
-import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, SEARCH_BY_NAME, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, FILTER_BY_ORIGIN, CLEAR_DOGS } from "./action_types";
+import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, SEARCH_BY_NAME, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, FILTER_BY_ORIGIN, CLEAR_FILTERS } from "./action_types";
 
 const initialState = {
     dogs: [],
     temperaments: [],
+    filters: false,
 }
 
 function rootReducer(state = initialState, { type, payload }) {
@@ -18,6 +19,7 @@ function rootReducer(state = initialState, { type, payload }) {
             return {
                 ...state,
                 dogs: payload,
+                filters: true
             }
 
         case FILTER_BY_ORIGIN:
@@ -30,24 +32,22 @@ function rootReducer(state = initialState, { type, payload }) {
             }
             return {
                 ...state,
-                dogs: originFiltered
+                dogs: originFiltered,
+                filters: true
             }
 
         case FILTER_BY_TEMPERAMENTS:
             let tempFiltered = []
-            if (payload === 'all') {
-                tempFiltered = state.dogs
-            } else {
-                tempFiltered = state.dogs.filter(dog =>
-                    dog.on_db
-                        ?
-                        dog.temperaments?.find(temp => temp.name === payload)
-                        :
-                        dog.temperament?.includes(payload))
-            }
+            tempFiltered = state.dogs.filter(dog =>
+                dog.on_db
+                    ?
+                    dog.temperaments?.find(temp => temp.name === payload)
+                    :
+                    dog.temperament?.includes(payload))
             return {
                 ...state,
-                dogs: tempFiltered
+                dogs: tempFiltered,
+                filters: true
             }
 
         case ALPHABETIC_ORDER:
@@ -66,7 +66,8 @@ function rootReducer(state = initialState, { type, payload }) {
             }
             return {
                 ...state,
-                dogs: [...aOrder]
+                dogs: [...aOrder],
+                filters: true
             }
 
         case WEIGHT_ORDER:
@@ -92,7 +93,14 @@ function rootReducer(state = initialState, { type, payload }) {
             })
             return {
                 ...state,
-                dogs: [...wOrder]
+                dogs: [...wOrder],
+                filters: true
+            }
+
+        case CLEAR_FILTERS:
+            return {
+                ...state,
+                filters: false
             }
 
         case ADD_TEMPERAMENTS:

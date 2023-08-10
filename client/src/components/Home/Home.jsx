@@ -7,6 +7,7 @@ import Pagination from '../Pagination/Pagination';
 
 export default function Home() {
     const dogs = useSelector((state) => state.dogs)
+    const filters = useSelector((state) => state.filters)
     const [page, setPage] = useState(1)
     const [currentDogs, setCurrentDogs] = useState()
     const dogsPerPage = 8
@@ -18,7 +19,7 @@ export default function Home() {
     }
 
     function changePage(p) {
-        if (p > 0 && p <= totalPages.length ) {
+        if (p > 0 && p <= totalPages.length) {
             setPage(p)
         }
     }
@@ -28,8 +29,12 @@ export default function Home() {
         setCurrentDogs(current)
     }, [dogs, page])
 
+    useEffect(() => {
+        filters && setPage(1)
+    }, [filters])
+
     return (
-        <div>
+        <div className={styles.container}>
             <Cards dogs={currentDogs}></Cards>
             <Pagination
                 dogs={dogs}
