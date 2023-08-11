@@ -24,7 +24,7 @@
 }
 
 .left_bar {
-    background-color: rgb(211, 224, 100);
+    background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126));
     position: fixed;
     left: 0px;
     top: 0px;
@@ -35,7 +35,7 @@
 }
 
 .right_bar {
-    background-color: rgb(211, 224, 100);
+    background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126));
     position: fixed;
     right: 0px;
     top: 0px;

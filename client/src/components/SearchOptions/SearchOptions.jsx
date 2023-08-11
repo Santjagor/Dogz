@@ -10,8 +10,8 @@ export default function SearchOptions() {
     const temperaments = useSelector((state) => state.temperaments)
     const defaultFilters = {
         name: "",
-        origin: "all",
-        temperament: "all",
+        origin: "",
+        temperament: "",
         alphabetic: 0,
         weight: 0,
     }
@@ -64,44 +64,61 @@ export default function SearchOptions() {
         if (filters.weight && filters.weight !== 0) {
             dispatch(weightOrder(filters.weight))
         }
-        if (filters.origin && filters.origin !== "all") {
+        if (filters.origin && filters.origin !== "all" && filters.origin !== "") {
             dispatch(filterByOrigin(filters.origin))
         }
-        if (filters.temperament && filters.temperament !== "all") {
+        if (filters.temperament && filters.temperament !== "all" && filters.temperament !== "") {
             dispatch(filterByTemperaments(filters.temperament))
         }
-        
     }
 
     return (
         <div className={styles.container}>
-            <input className={styles.name} type="text" name="name" placeholder='Search by name' onChange={handleChange} />
+            <input className={styles.name} type="text" name="name" value={filters.name} placeholder=' Search by name' onChange={handleChange} />
 
-            <label htmlFor="origin">
-                <select name="origin" id="origin" onChange={handleChange}>
-                    <option value="all">All</option>
-                    <option value="db">My own dogs</option>
-                    <option value="api">API dogs</option>
-                </select>
-            </label>
+            <div>
+                <label htmlFor="origin">
+                    <select className={styles.menu} value={filters.origin} name="origin" id="origin" onChange={handleChange}>
+                        <option value="" disabled selected hidden>Filter by origin</option>
+                        <option value="all">All</option>
+                        <option value="db">My own dogs</option>
+                        <option value="api">API dogs</option>
+                    </select>
+                </label>
 
-            <label htmlFor="temperament">
-                <select name="temperament" id="temperament" onChange={handleChange}>
-                    <option value="all">All</option>
-                    {temperaments?.map(temperament => {
-                        return (
-                            <option key={temperament.id} value={temperament.name}>{temperament.name}</option>
-                        )
-                    })}
-                </select>
-            </label>
+                <label htmlFor="temperament">
+                    <select className={styles.menu} name="temperament" value={filters.temperament} id="temperament" onChange={handleChange}>
+                        <option value="" disabled selected hidden>Filter by temperaments</option>
+                        <option value="all">All</option>
+                        {temperaments?.map(temperament => {
+                            return (
+                                <option key={temperament.id} value={temperament.name}>{temperament.name}</option>
+                            )
+                        })}
+                    </select>
+                </label>
 
-            <button className={styles.button} name="alphabetic" onClick={handleSort}>A-Z</button>
-            <button name="weight" onClick={handleSort}>W</button>
+                <button className={filters.alphabetic === 0
+                    ?
+                    styles.sort_inactive
+                    :
+                    styles.sort_active}
+                    name="alphabetic" onClick={handleSort}>
+                    {filters.alphabetic === 1 ? 'A-Z↓' : filters.alphabetic === -1 ? 'A-Z↑' : 'A-Z↓'}
+                </button>
 
-            <button onClick={clear}>CLEAR</button>
-            <button onClick={handleSubmit}>SEARCH</button>
+                <button className={filters.weight === 0
+                    ?
+                    styles.sort_inactive
+                    :
+                    styles.sort_active}
+                    name="weight" onClick={handleSort}>
+                    {filters.weight === 1 ? 'W↓' : filters.weight === -1 ? 'W↑' : 'W↓'}
+                </button>
 
+            </div>
+            <button className={styles.button} onClick={clear}>CLEAR</button>
+            <button className={styles.button} onClick={handleSubmit}>SEARCH</button>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 .container {
-    background: linear-gradient(90deg, rgb(223, 223, 223), rgb(194, 194, 194));
+    background: linear-gradient(90deg, rgb(223, 223, 223), rgb(202, 204, 181));
     display: flex;
     flex-direction: column;
     width: 230px;
@@ -7,13 +7,14 @@
     justify-content: space-between;
     z-index: 1;
     box-shadow: 2px 3px 5px 0px rgb(40, 40, 40);
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 .container:hover {
     border-radius: 5px;
     scale: 1.02;
     z-index: 2;
+
     .image_container {
         border-radius: 5px;
     }
@@ -23,7 +24,7 @@
     text-transform: uppercase;
     font-size: 100%;
     font-weight: bolder;
-    background-color: rgb(211, 224, 100);
+    /* background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126)); */
     color: rgb(40, 40, 40);
     margin-left: 7px;
     margin-right: 7px;
@@ -46,27 +47,27 @@
 .weight {
     font-size: 80%;
     font-weight: bolder;
-    color: rgb(40, 40, 40);
     height: 20px;
     margin-left: 7px;
     margin-right: 7px;
     padding: 3px 5px 1px 5px;
     width: 75px;
     align-self: center;
-    background-color: rgb(211, 224, 100);
+    /* background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126)); */
+    color: rgb(40, 40, 40);
     border-radius: 15px;
 }
 
 .image_container {
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
     align-self: center;
-    background-color: #8d604d;
     height: 9em;
     width: 13em;
     overflow: hidden;
-    border-radius: 60px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: rgb(222, 233, 126);
 }
-
 
 .image {
     width: 100%;

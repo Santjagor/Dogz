@@ -3,7 +3,8 @@
     min-height: 70px;
     /* padding-top: 10px; */
     /* padding-bottom: 10px; */
-    background-color: #096780;
+    background-color: white;
+    box-shadow: 0px 1px 5px 1px rgb(40, 40, 40);
     position: sticky;
     top: 0px;
     display: flex;

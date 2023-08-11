@@ -1,5 +1,8 @@
+.container {
+    margin: 10px;
+}
+
 .button {
-    background-color: rgb(211, 224, 0);
     color: rgb(40, 40, 40);
     font-weight: bolder;
     font-size: 15px;
@@ -10,10 +13,16 @@
     border-radius: 8px;
 }
 
+.button:hover {
+    background-color: rgb(212, 212, 212);
+
+}
+
 .pages {
     color: rgb(40, 40, 40);
     font-weight: bolder;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 2px;
+    cursor: default;
 }
