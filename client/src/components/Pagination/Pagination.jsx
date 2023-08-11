@@ -5,11 +5,11 @@ export default function Pagination({ page, changePage, totalPages }) {
         totalPages.length
             ?
             <div>
-                <button onClick={() => { changePage(1) }}>{"<<"}</button>
-                <button onClick={() => { changePage(page - 1) }}>{"<"}</button>
-                {totalPages.length ? <span>{`${page} of ${totalPages[totalPages.length - 1]}`}</span> : <></>}
-                <button onClick={() => { changePage(page + 1) }}>{">"}</button>
-                <button onClick={() => { changePage(totalPages.length) }}>{">>"}</button>
+                <button className={styles.button} onClick={() => { changePage(1) }}>{"<<"}</button>
+                <button className={styles.button} onClick={() => { changePage(page - 1) }}>{"<"}</button>
+                {totalPages.length ? <span className={styles.pages}>{`${page} of ${totalPages[totalPages.length - 1]}`}</span> : <></>}
+                <button className={styles.button} onClick={() => { changePage(page + 1) }}>{">"}</button>
+                <button className={styles.button} onClick={() => { changePage(totalPages.length) }}>{">>"}</button>
             </div>
             :
             <></>
