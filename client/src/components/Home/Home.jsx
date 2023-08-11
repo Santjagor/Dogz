@@ -39,7 +39,14 @@ export default function Home() {
             <Link to={`/form`}>
                 <button>CREATE</button>
             </Link>
-            <Cards dogs={currentDogs}></Cards>            
+            <Pagination
+                dogs={dogs}
+                dogsPerPage={dogsPerPage}
+                page={page}
+                totalPages={totalPages}
+                changePage={changePage}
+            />
+            <Cards dogs={currentDogs}></Cards>
             <Pagination
                 dogs={dogs}
                 dogsPerPage={dogsPerPage}

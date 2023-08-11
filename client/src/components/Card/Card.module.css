@@ -2,32 +2,39 @@
     background-color: #573b2f;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 230px;
-    border-radius: 15px;
+    border-radius: 25px;
 }
 
-.container:hover{
-    border-radius: 0px;
+.container:hover {
+    border-radius: 5px;
 }
 
 .name {
-    font-size: 75%;
+    font-size: 85%;
     font-weight: bolder;
     color: white;
     height: 40px;
-    width: 220px;
     margin-left: 7px;
     margin-right: 7px;
     margin-bottom: 0px;
 }
 
-.info{
-    font-size: 60%;
+.temperaments {
+    font-size: 70%;
     font-weight: bolder;
     color: white;
-    height: 40px;
-    width: 220px;
+    height: 35px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.weight {
+    font-size: 100%;
+    font-weight: bolder;
+    color: white;
+    height: 20px;
     margin-left: 7px;
     margin-right: 7px;
 }
@@ -39,7 +46,7 @@
     height: 9em;
     width: 13em;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 50px;
 }
 
 

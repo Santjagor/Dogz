@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 export default function Cards({ dogs }) {
     return (
         <div className={styles.container}>
-            {dogs?.length <= 0 ? <p>Dogs not found</p> : <></>}
+            {dogs?.length <= 0 ? <p>{`Dogs not found :(`}</p> : <></>}
             {dogs?.map(dog => {
                 return (
                     <Card

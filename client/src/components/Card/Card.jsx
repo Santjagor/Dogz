@@ -22,8 +22,8 @@ export default function Card({ id, image, name, weight, temperaments }) {
                     <img className={styles.image} src={image} onError={noImage}></img>
                 </Link>
             </div>
-            <p className={styles.info}>{temperaments ? temperaments : "No data"}</p>
-            <p className={styles.info}>{weight} Kg</p>
+            <p className={styles.temperaments}>{temperaments ? temperaments : "No data"}</p>
+            <p className={styles.weight}>{weight} Kg</p>
         </div>
     )
 }

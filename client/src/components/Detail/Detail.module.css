@@ -5,24 +5,36 @@
 }
 
 .name {
-    margin-bottom: 0px;
+    background-color: blue;
+    margin-bottom: 5px;
+    width: 400px;
+    border-radius: 15px;
+    padding-bottom: 5px;
 }
 
-.temperaments {
-    margin-top: 5px;
-    margin-bottom: 15px;
+.hw_container{
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin-bottom: 5px;
+    border-radius: 15px;
 }
 
 .height_weight {
-    margin: 5px;
+    margin: 5px 25px 5px 25px;
+    border-radius: 15px;
 }
 
-.p {
-    color: black;
+.temperaments {
+    background-color: brown;
+    margin: 0px 0px 5px 0px;
+    width: 400px;
+    border-radius: 15px;
+    padding: 3px 0px 5px 0px;
 }
 
 .image {
-    width: 350px;
-    /* border-style: solid;
-    border-width: 10px; */
+    width: 400px;
+    border-radius: 15px;
 }
