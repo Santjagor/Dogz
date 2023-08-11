@@ -1,10 +1,12 @@
 import styles from './SearchOptions.module.css'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { addAllDogs, searchByName, filterByOrigin, filterByTemperaments, alphabeticOrder, weightOrder, clearFilters } from '../../redux/actions';
 
 export default function SearchOptions() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const temperaments = useSelector((state) => state.temperaments)
     const defaultFilters = {
         name: "",
@@ -49,6 +51,7 @@ export default function SearchOptions() {
     }
 
     async function handleSubmit() {
+        navigate("/home")
         dispatch(clearFilters())
         if (filters.name && filters.name !== "") {
             await dispatch(searchByName(filters.name))
@@ -67,6 +70,7 @@ export default function SearchOptions() {
         if (filters.temperament && filters.temperament !== "all") {
             dispatch(filterByTemperaments(filters.temperament))
         }
+        
     }
 
     return (

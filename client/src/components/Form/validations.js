@@ -53,7 +53,7 @@ export default function validate(dogData) {
     }
 
     if (dogData.temperaments.length < 1 || dogData.temperaments.length > 15) {
-        errors = { ...errors, temperaments: "Must contain between 1 and 15 temperaments" }
+        errors = { ...errors, temperaments: "Must contain between 1 and 10 temperaments" }
     } else {
         errors = { ...errors, temperaments: "" }
     }

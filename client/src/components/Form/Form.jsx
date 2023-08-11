@@ -75,33 +75,33 @@ export default function Form() {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <p>CREATE YOUR OWN BREED</p>
             <form onSubmit={handleSubmit}>
                 <div>Breed Name:</div>
-                <input type="text" name="name" value={dogData.name} onChange={handleChange} />
+                <input className={styles.input_long} type="text" name="name" value={dogData.name} onChange={handleChange} />
 
                 <div>Height:</div>
-                <input type="text" name="min_height" placeholder='Min' value={dogData.min_height} onChange={handleChange} />
+                <input className={styles.input_short} type="text" name="min_height" placeholder='Min' value={dogData.min_height} onChange={handleChange} />
                 <span> - </span>
-                <input type="text" name="max_height" placeholder='Max' value={dogData.max_height} onChange={handleChange} />
+                <input className={styles.input_short} type="text" name="max_height" placeholder='Max' value={dogData.max_height} onChange={handleChange} />
 
                 <div>Weight:</div>
-                <input type="text" name="min_weight" placeholder='Min' value={dogData.min_weight} onChange={handleChange} />
+                <input className={styles.input_short} type="text" name="min_weight" placeholder='Min' value={dogData.min_weight} onChange={handleChange} />
                 <span> - </span>
-                <input type="text" name="max_weight" placeholder='Max' value={dogData.max_weight} onChange={handleChange} />
+                <input className={styles.input_short} type="text" name="max_weight" placeholder='Max' value={dogData.max_weight} onChange={handleChange} />
 
                 <div>Life Span:</div>
-                <input type="text" name="min_life_span" placeholder='Min' value={dogData.min_life_span} onChange={handleChange} />
+                <input className={styles.input_short} type="text" name="min_life_span" placeholder='Min' value={dogData.min_life_span} onChange={handleChange} />
                 <span> - </span>
-                <input type="text" name="max_life_span" placeholder='Max' value={dogData.max_life_span} onChange={handleChange} />
+                <input className={styles.input_short} type="text" name="max_life_span" placeholder='Max' value={dogData.max_life_span} onChange={handleChange} />
 
                 <div>Image:</div>
-                <input type="text" name="image" value={dogData.image} onChange={handleChange} />
+                <input className={styles.input_long} type="text" name="image" value={dogData.image} onChange={handleChange} />
 
                 <div>Temperaments:</div>
                 <br />
-                <div>
+                <div className={styles.tempsContainer}>
                     {allTemperaments?.map(temperament => {
                         return (
                             <div key={temperament.id}>

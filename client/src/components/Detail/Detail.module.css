@@ -4,12 +4,25 @@
     align-items: center;
 }
 
+.name {
+    margin-bottom: 0px;
+}
+
+.temperaments {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.height_weight {
+    margin: 5px;
+}
+
 .p {
     color: black;
 }
 
 .image {
-    width: 300px;
-    border-style: solid;
-    border-width: 10px;
+    width: 350px;
+    /* border-style: solid;
+    border-width: 10px; */
 }

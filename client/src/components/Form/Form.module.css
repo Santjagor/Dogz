@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input_long{
+    width: 300px;
+}
+
+.input_short{
+    width: 80px;
+}
+
+.tempsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    height: 150px;
+    width: 300px;
+    overflow-y: scroll;
+}

@@ -13,9 +13,16 @@
 
 .name {
     font-size: 75%;
+    font-weight: bolder;
+    color: white;
+    height: 40px;
+    width: 220px;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-bottom: 0px;
 }
 
-p{
+.info{
     font-size: 60%;
     font-weight: bolder;
     color: white;

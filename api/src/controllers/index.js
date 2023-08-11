@@ -36,7 +36,7 @@ const getDogsByQuery = async (name) => {
 const getDogsById = async (id) => {
     try {
         const allDogs = await getDogs()
-        const dogFound = allDogs.filter(dog => dog.id === Number(id))
+        const dogFound = allDogs.filter(dog => dog.id.toString() === id)
         return dogFound
     } catch (error) {
         throw Error(error.message)
