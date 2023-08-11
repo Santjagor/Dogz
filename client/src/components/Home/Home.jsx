@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Cards from '../Cards/Cards';
 import Pagination from '../Pagination/Pagination';
+import { Link } from 'react-router-dom';
 
 
 export default function Home() {
@@ -35,7 +36,10 @@ export default function Home() {
 
     return (
         <div className={styles.container}>
-            <Cards dogs={currentDogs}></Cards>
+            <Link to={`/form`}>
+                <button>CREATE</button>
+            </Link>
+            <Cards dogs={currentDogs}></Cards>            
             <Pagination
                 dogs={dogs}
                 dogsPerPage={dogsPerPage}

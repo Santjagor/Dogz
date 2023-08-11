@@ -10,8 +10,8 @@ export default function validate(dogData) {
 
     if (!onlyLettersAndSpaces.test(dogData.name)) {
         errors = { ...errors, name: 'Breed Name must contain only letters and spaces' }
-    } else if (dogData.name.length > 30 || dogData.name.length < 3) {
-        errors = { ...errors, name: 'Breed Name must contain between 3 and 30 characters' }
+    } else if (dogData.name.length > 25 || dogData.name.length < 2) {
+        errors = { ...errors, name: 'Breed Name must contain between 2 and 25 characters' }
     } else {
         errors = { ...errors, name: "" }
     }

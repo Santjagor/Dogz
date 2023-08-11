@@ -2,6 +2,7 @@ import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, SEARCH_BY_NAME, FILTER_BY_T
 
 const initialState = {
     dogs: [],
+    dogDetail: [],
     temperaments: [],
     filters: false,
 }

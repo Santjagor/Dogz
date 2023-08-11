@@ -70,9 +70,8 @@ export default function SearchOptions() {
     }
 
     return (
-        <div>
-
-            <input type="text" name="name" onChange={handleChange} />
+        <div className={styles.container}>
+            <input className={styles.name} type="text" name="name" placeholder='Search by name' onChange={handleChange} />
 
             <label htmlFor="origin">
                 <select name="origin" id="origin" onChange={handleChange}>
@@ -93,7 +92,7 @@ export default function SearchOptions() {
                 </select>
             </label>
 
-            <button name="alphabetic" onClick={handleSort}>A-Z</button>
+            <button className={styles.button} name="alphabetic" onClick={handleSort}>A-Z</button>
             <button name="weight" onClick={handleSort}>W</button>
 
             <button onClick={clear}>CLEAR</button>

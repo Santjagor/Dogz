@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "icons";
+    src: url(D:\Henry\PI\PI_Dogs\PI-Dogs-main\client\src\assets\fonts\PWSmallIcons.ttf);
+}
+
+.container {
+    /* background-color: #053644; */
+}
+
+.name {
+    
+}
+
+.button {}
+
+.icon {
+    font-family: "icons";
+    font-size: xx-large;
+}
