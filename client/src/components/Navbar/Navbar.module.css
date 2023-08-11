@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    min-height: 70px;
+    min-height: 90px;
     /* padding-top: 10px; */
     /* padding-bottom: 10px; */
     background-color: white;
@@ -8,10 +8,15 @@
     position: sticky;
     top: 0px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 3;
     /* justify-content: space-between; */
+}
+
+.top_image{
+    height: 90px;
 }
 
 .home {

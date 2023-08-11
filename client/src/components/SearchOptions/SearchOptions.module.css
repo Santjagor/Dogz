@@ -8,6 +8,7 @@
 }
 
 .name {
+    font-weight: bolder;
     width: 362px;
     border-radius: 10px;
     border: none;
@@ -16,16 +17,8 @@
 
 .menu {
     width: 145px;
+    font-weight: bolder;
     font-size: 12px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: none;
-    margin: 0px 2px 0px 2px;
-    background-color: rgb(211, 224, 100);
-}
-
-.sort {
-    font-size: 11px;
     cursor: pointer;
     border-radius: 10px;
     border: none;
@@ -44,6 +37,10 @@
     margin: 0px 2px 0px 2px;
 }
 
+.sort_active:active {
+    scale: 0.96;
+}
+
 .sort_inactive {
     font-weight: bolder;
     background-color: none;
@@ -53,6 +50,10 @@
     border-radius: 10px;
     margin: 0px 2px 0px 2px;
     background-color: rgb(211, 224, 100);
+}
+
+.sort_inactive:active {
+    scale: 0.96;
 }
 
 .button {
@@ -68,7 +69,7 @@
 }
 
 .button:active {
-    scale: 0.95;
+    scale: 0.96;
 }
 
 /* .icon {
