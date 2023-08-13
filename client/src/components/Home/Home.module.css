@@ -1,46 +1,52 @@
+@font-face {
+    font-family: good;
+    src: url(.../../../../assets/fonts/GOODDP_.TTF);
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.left_bot_dog {
-    width: 12vw;
-    min-width: 100px;
-    max-width: 280px;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    z-index: 0;
+.create {
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    border: none;
+    border-radius: 30px;
+    margin: 25px 0px 15px 0px;
+    color: rgb(211, 224, 100);
+    background: linear-gradient(45deg, rgb(40, 40, 40), rgb(40, 40, 40));
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 40px;
+    font-family: good;
+    text-indent: 9px;
+    letter-spacing: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 5px;
+    animation-name: button;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: all 0.2s ease-in-out;
 }
 
-.right_bot_dog {
-    width: 12vw;
-    min-width: 100px;
-    max-width: 280px;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
+.create:hover {
+    text-indent: 0px;
+    letter-spacing: 0px;
+    animation: none;
+    width: 180px;
 }
 
-.left_bar {
-    background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126));
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 8vw;
-    min-width: 100px;
-    height: 100%;
-    z-index: -1;
-}
+@keyframes button {
+    0% {
+        transform: scale(0.9, 0.9);
+    }
 
-.right_bar {
-    background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126));
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    width: 8vw;
-    min-width: 100px;
-    height: 100%;
-    z-index: -1;
+    100% {
+        transform: scale(1.0, 1.0);
+    }
 }

@@ -69,6 +69,7 @@ export default function Form() {
             dispatch(createDog(newDog))
             dispatch(addAllDogs())
             setDogData(defaultDogData)
+            event.target.reset()
         } else {
             alert("Missing or incorrect Data")
         }

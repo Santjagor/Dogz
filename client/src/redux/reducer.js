@@ -1,4 +1,4 @@
-import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, CREATE_DOG, SEARCH_BY_NAME, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, FILTER_BY_ORIGIN, CLEAR_FILTERS } from "./action_types";
+import { ADD_ALL_DOGS, ADD_TEMPERAMENTS, SEARCH_BY_NAME, FILTER_BY_TEMPERAMENTS, ALPHABETIC_ORDER, WEIGHT_ORDER, FILTER_BY_ORIGIN, CLEAR_FILTERS } from "./action_types";
 
 const initialState = {
     dogs: [],
@@ -27,7 +27,6 @@ function rootReducer(state = initialState, { type, payload }) {
             let originFiltered = []
             if (payload === "db") {
                 originFiltered = state.dogs.filter(dog => dog.on_db)
-                console.log(originFiltered);
             } else if (payload === "api") {
                 originFiltered = state.dogs.filter(dog => !dog.on_db)
             }

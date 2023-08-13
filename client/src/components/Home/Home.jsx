@@ -37,7 +37,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Link to={`/form`}>
-                <button>CREATE</button>
+                <button className={styles.create}>⚒ Create</button>
             </Link>
             <Pagination
                 dogs={dogs}
@@ -54,10 +54,6 @@ export default function Home() {
                 totalPages={totalPages}
                 changePage={changePage}
             />
-            <div className={styles.left_bar}></div>
-            <div className={styles.right_bar}></div>
-            <img className={styles.left_bot_dog} src="https://drive.google.com/uc?export=view&id=18gxNZXlVoxSq5v-dajrlu-nJcmS_Zc3X" alt="" />
-            <img className={styles.right_bot_dog} src="https://drive.google.com/uc?export=view&id=1q0QmOMnuVWxuDmDgDqWNpwP_QekdbYBU" alt="" />
         </div>
     )
 }
