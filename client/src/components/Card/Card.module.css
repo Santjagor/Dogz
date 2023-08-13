@@ -1,3 +1,8 @@
+@font-face {
+    font-family: good;
+    src: url(../../assets/fonts/GOODDP_.TTF);
+}
+
 .container {
     background: linear-gradient(90deg, rgb(223, 223, 223), rgb(202, 204, 181));
     display: flex;
@@ -22,7 +27,8 @@
 
 .name {
     text-transform: uppercase;
-    font-size: 100%;
+    font-size: 25px;
+    font-family: good;
     font-weight: bolder;
     /* background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126)); */
     color: rgb(40, 40, 40);

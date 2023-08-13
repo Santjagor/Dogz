@@ -101,9 +101,9 @@ export function createDog(dog) {
         try {
             const response = await axios.post(endpoint, dog)
             if (response.data.name) {
-                alert(`"${response.data.name}" breed created!`)
+                return true
             } else {
-                alert(response.data)
+                return response.data
             }
         } catch (error) {
             alert(error.message)

@@ -1,15 +1,67 @@
-.container{
+@font-face {
+    font-family: good;
+    src: url(../../assets/fonts/GOODDP_.TTF);
+}
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
+    background: linear-gradient(90deg, rgb(222, 233, 126), rgb(200, 207, 132));
+    width: 350px;
+    margin: 20px 0px 20px 0px;
+    border-radius: 25px;
 }
 
-.input_long{
+.title {
+    font-family: good;
+    font-size: 45px;
+    color: rgb(40, 40, 40);
+    margin: 15px 0px 25px 0px;
+}
+
+.section {
+    border-style: solid;
+    border-color: rgb(40, 40, 40);
+    border-radius: 10px;
+    margin: 0px 0px 10px 0px;
+    padding: 3px 0px 10px 0px;
+}
+
+.tag {
+    color: rgb(40, 40, 40);
+    font-weight: bold;
+    font-family: good;
+    font-size: 25px;
+}
+
+.input_long {
     width: 300px;
+    height: 20px;
+    background-color: rgb(40, 40, 40);
+    color: rgb(222, 233, 126);
+    border: none;
+    border-radius: 10px;
+    text-align: center;
 }
 
-.input_short{
-    width: 80px;
+.input_short {
+    width: 40px;
+    height: 20px;
+    margin: 0px 5px 0px 5px;
+    background-color: rgb(40, 40, 40);
+    color: rgb(222, 233, 126);
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.error {
+    color: rgb(189, 31, 31);
+    margin: 2px;
+    font-size: 12px;
+    font-weight: bolder;
 }
 
 .tempsContainer {
@@ -17,7 +69,55 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px;
-    height: 150px;
-    width: 300px;
+    height: 100px;
+    width: 250px;
+    margin: 2px 22px 0px 22px;
     overflow-y: scroll;
+    background-color: rgb(40, 40, 40);
+    color: rgb(222, 233, 126);
+    gap: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.temp {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.temp:hover {
+    opacity: 100%;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    cursor: pointer;
+    background-color: rgb(222, 233, 126);
+    color: rgb(40, 40, 40);
+    width: 12px;
+    height: 12px;
+    border-style: solid;
+    border-color: rgb(222, 233, 126);
+    border-radius: 7px;
+}
+
+input[type="checkbox"]:checked {
+    appearance: none;
+    background-color: rgb(40, 40, 40);
+}
+
+.button {
+    opacity: 100%;
+    background-color: rgb(40, 40, 40);
+    color: rgb(222, 233, 126);
+    border: none;
+    font-family: good;
+    font-size: 30px;
+    border-radius: 15px;
+    margin: 0px 0px 15px 0px;
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 30%;
 }

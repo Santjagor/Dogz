@@ -1,7 +1,7 @@
 import styles from './Form.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import validate from './validations';
 import { createDog, addAllDogs } from '../../redux/actions';
 
@@ -23,18 +23,9 @@ export default function Form() {
     const [dogData, setDogData] = useState(defaultDogData)
     const [errors, setErrors] = useState({})
 
-    function checkErrors() {
-        if (Object.keys(errors).length) {
-            for (const err in errors) {
-                if (errors[err] !== "") {
-                    return false
-                }
-            }
-        } else {
-            return false
-        }
-        return true
-    }
+    useEffect(() => {
+        setErrors(validate({ ...dogData }))
+    }, [])
 
     function handleChange(event) {
         let property = event.target.name
@@ -52,68 +43,101 @@ export default function Form() {
             [property]: value
         })
         setErrors(validate({ ...dogData, [property]: value }))
-        console.log(event.target.checked);
+    }
+
+    function checkImage(url) {
+        let image = new Image()
+        image.src = url
+        image.onerror = function () {
+            setDogData({
+                ...dogData,
+                image: 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'
+            })
+        }
     }
 
     async function handleSubmit(event) {
         event.preventDefault()
-        if (checkErrors()) {
-            const newDog = {
-                name: dogData.name,
-                height: `${dogData.min_height} - ${dogData.max_height}`,
-                weight: `${dogData.min_weight} - ${dogData.max_weight}`,
-                life_span: `${dogData.min_life_span} - ${dogData.max_life_span}`,
-                image: dogData.image,
-                temperaments: dogData.temperaments,
-            }
-            dispatch(createDog(newDog))
+        const newDog = {
+            name: dogData.name,
+            height: `${dogData.min_height} - ${dogData.max_height}`,
+            weight: `${dogData.min_weight} - ${dogData.max_weight}`,
+            life_span: `${dogData.min_life_span} - ${dogData.max_life_span}`,
+            image: dogData.image,
+            temperaments: dogData.temperaments,
+        }
+        const response = await dispatch(createDog(newDog))
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        if (response === true) {
             dispatch(addAllDogs())
             setDogData(defaultDogData)
             event.target.reset()
+            alert('Dog Created!')
         } else {
-            alert("Missing or incorrect Data")
+            alert(response)
         }
     }
 
     return (
         <div className={styles.container}>
-            <p>CREATE YOUR OWN BREED</p>
+            <p className={styles.title}>CREATE YOUR OWN DOG</p>
             <form onSubmit={handleSubmit}>
-                <div>Breed Name:</div>
-                <input className={styles.input_long} type="text" name="name" value={dogData.name} onChange={handleChange} />
 
-                <div>Height:</div>
-                <input className={styles.input_short} type="text" name="min_height" placeholder='Min' value={dogData.min_height} onChange={handleChange} />
-                <span> - </span>
-                <input className={styles.input_short} type="text" name="max_height" placeholder='Max' value={dogData.max_height} onChange={handleChange} />
-
-                <div>Weight:</div>
-                <input className={styles.input_short} type="text" name="min_weight" placeholder='Min' value={dogData.min_weight} onChange={handleChange} />
-                <span> - </span>
-                <input className={styles.input_short} type="text" name="max_weight" placeholder='Max' value={dogData.max_weight} onChange={handleChange} />
-
-                <div>Life Span:</div>
-                <input className={styles.input_short} type="text" name="min_life_span" placeholder='Min' value={dogData.min_life_span} onChange={handleChange} />
-                <span> - </span>
-                <input className={styles.input_short} type="text" name="max_life_span" placeholder='Max' value={dogData.max_life_span} onChange={handleChange} />
-
-                <div>Image:</div>
-                <input className={styles.input_long} type="text" name="image" value={dogData.image} onChange={handleChange} />
-
-                <div>Temperaments:</div>
-                <br />
-                <div className={styles.tempsContainer}>
-                    {allTemperaments?.map(temperament => {
-                        return (
-                            <div key={temperament.id}>
-                                <input id={temperament.id} type="checkbox" name="temperaments" onChange={handleChange} />
-                                {temperament.name}
-                            </div>
-                        )
-                    })}
+                <div className={styles.section}>
+                    <div className={styles.tag}>Dog Name</div>
+                    <input className={styles.input_long} type="text" name="name" value={dogData.name} onChange={handleChange} />
+                    {errors.name && <div className={styles.error}>{errors.name}</div>}
                 </div>
-                <br /><br />
-                <button type="submit" >CREATE</button>
+
+
+                <div className={styles.section}>
+                    <div className={styles.tag}>Height</div>
+                    <input className={styles.input_short} type="text" name="min_height" placeholder='Min' value={dogData.min_height} onChange={handleChange} />
+                    <input className={styles.input_short} type="text" name="max_height" placeholder='Max' value={dogData.max_height} onChange={handleChange} />
+                    {errors.height && <div className={styles.error}>{errors.height}</div>}
+                </div>
+
+
+                <div className={styles.section}>
+                    <div className={styles.tag}>Weight</div>
+                    <input className={styles.input_short} type="text" name="min_weight" placeholder='Min' value={dogData.min_weight} onChange={handleChange} />
+                    <input className={styles.input_short} type="text" name="max_weight" placeholder='Max' value={dogData.max_weight} onChange={handleChange} />
+                    {errors.weight && <div className={styles.error}>{errors.weight}</div>}
+                </div>
+
+
+                <div className={styles.section}>
+                    <div className={styles.tag}>Life Span</div>
+                    <input className={styles.input_short} type="text" name="min_life_span" placeholder='Min' value={dogData.min_life_span} onChange={handleChange} />
+                    <input className={styles.input_short} type="text" name="max_life_span" placeholder='Max' value={dogData.max_life_span} onChange={handleChange} />
+                    {errors.life_span && <div className={styles.error}>{errors.life_span}</div>}
+                </div>
+
+
+                <div className={styles.section}>
+                    <div className={styles.tag}>Image</div>
+                    <input className={styles.input_long} type="text" name="image" value={dogData.image} onChange={handleChange} />
+                    {errors.image && <div className={styles.error}>{errors.image}</div>}
+                </div>
+
+
+                <div className={styles.section}>
+                    <div className={styles.tag}>Temperaments</div>
+                    <div className={styles.tempsContainer}>
+                        {allTemperaments?.map(temperament => {
+                            return (
+                                <div className={styles.temp} key={temperament.id}>
+                                    <input id={temperament.id} type="checkbox" name="temperaments" onChange={handleChange} />
+                                    {temperament.name}
+                                </div>
+                            )
+                        })}
+                    </div>
+                    {errors.temperaments && <div className={styles.error}>{errors.temperaments}</div>}
+                </div>
+
+                <br />
+                {Object.keys(errors).every((key) => !errors[key]) ? <button className={styles.button} type="submit">CREATE</button> : <button className={styles.button} type="submit" disabled >CREATE</button>}
             </form>
         </div>
     )

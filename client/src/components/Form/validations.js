@@ -52,7 +52,7 @@ export default function validate(dogData) {
         errors = { ...errors, image: "" }
     }
 
-    if (dogData.temperaments.length < 1 || dogData.temperaments.length > 15) {
+    if (dogData.temperaments.length < 1 || dogData.temperaments.length > 10) {
         errors = { ...errors, temperaments: "Must contain between 1 and 10 temperaments" }
     } else {
         errors = { ...errors, temperaments: "" }
