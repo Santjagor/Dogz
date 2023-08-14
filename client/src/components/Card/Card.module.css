@@ -13,6 +13,7 @@
     z-index: 1;
     box-shadow: 2px 3px 5px 0px rgb(40, 40, 40);
     transition: all .2s ease-in-out;
+    animation: appear 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .container:hover {
@@ -58,7 +59,6 @@
     padding: 3px 5px 1px 5px;
     width: 75px;
     align-self: center;
-    /* background: linear-gradient(90deg, rgb(211, 224, 100), rgb(222, 233, 126)); */
     color: rgb(40, 40, 40);
     border-radius: 15px;
 }
@@ -77,4 +77,14 @@
 .image {
     width: 100%;
     height: 100%;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }
