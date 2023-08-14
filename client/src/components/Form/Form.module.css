@@ -12,6 +12,7 @@
     width: 350px;
     margin: 20px 0px 20px 0px;
     border-radius: 25px;
+    animation: appear 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 
 .title {
@@ -120,4 +121,14 @@ input[type="checkbox"]:checked {
 
 .button:disabled {
     opacity: 30%;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }

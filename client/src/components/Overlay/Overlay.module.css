@@ -6,7 +6,7 @@
     bottom: 0px;
     left: 0px;
     animation-name: slide-in-left;
-    animation-duration: .5s;
+    animation-duration: 1s;
 }
 
 .right_bot_dog {
@@ -17,7 +17,7 @@
     bottom: 0px;
     right: 0px;
     animation-name: slide-in-right;
-    animation-duration: .5s;
+    animation-duration: 1s;
 }
 
 .left_bar {

@@ -24,7 +24,7 @@
     max-width: 500px;
     margin: 15px;
     animation-name: slide-in-left;
-    animation-duration: .5s;
+    animation-duration: 1s;
 }
 
 .welcome {
@@ -34,7 +34,7 @@
     max-width: 500px;
     margin: 15px;
     animation-name: slide-in-right;
-    animation-duration: .5s;
+    animation-duration: 1s;
 }
 
 .enter {
@@ -47,7 +47,8 @@
     font-size: 50px;
     cursor: pointer;
     animation-name: slide-in-bottom;
-    animation-duration: .5s;
+    animation-duration: 1s;
+    transition: all 0.1s ease-in-out;
 }
 
 .enter:hover {
