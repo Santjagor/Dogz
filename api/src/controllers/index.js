@@ -64,6 +64,19 @@ const postDog = async (name, image, height, weight, life_span, temperaments) => 
     }
 }
 
+const deleteDog = async (id) => {
+    try {
+        const dogDeleted = await Dog.destroy({
+            where: {
+                id
+            }
+        })
+        return dogDeleted
+    } catch (error) {
+        throw Error(error.message)
+    }
+}
+
 const getTemperaments = async () => {
     try {
         const response = await axios(`${URL}`)
@@ -96,5 +109,6 @@ module.exports = {
     getDogsById,
     getDogsByQuery,
     postDog,
+    deleteDog,
     getTemperaments,
 }

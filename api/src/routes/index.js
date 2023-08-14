@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getDogs, getDogsById, getDogsByQuery, postDog, getTemperaments } = require('../controllers/index')
+const { getDogs, getDogsById, getDogsByQuery, postDog, deleteDog ,getTemperaments } = require('../controllers/index');
 
 const router = Router();
 
@@ -52,6 +52,19 @@ router.post('/dogs', async (req, res) => {
     try {
         const dogPosted = await postDog(name, image, height, weight, life_span, temperaments)
         res.status(200).json(dogPosted)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.delete('/dogs/:id', async (req, res) => {
+    const { id } = req.params
+    if (!id) {
+        return res.status(400).json({ error: "Missing data" })
+    }
+    try {
+        const dogDeleted = await deleteDog(id)
+        res.status(200).json(dogDeleted)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }

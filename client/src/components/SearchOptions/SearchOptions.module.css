@@ -1,17 +1,15 @@
-.container {
-    /* background-color: #053644; */
-}
-
 .name {
     font-weight: bolder;
-    width: 362px;
+    width: 386px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(211, 224, 100);
+    background-color: rgb(40, 40, 40);
+    color: rgb(211, 224, 100);
+    text-align: center;
 }
 
 .menu {
-    width: 145px;
+    width: 155px;
     font-weight: bolder;
     font-size: 12px;
     cursor: pointer;
@@ -19,17 +17,29 @@
     border: none;
     margin: 0px 2px 0px 2px;
     background-color: rgb(211, 224, 100);
+    color: rgb(40, 40, 40);
+}
+
+option:checked,
+option:hover {
+    background-color: rgb(40, 40, 40);
+    color: rgb(211, 224, 100);
+}
+
+.menu * {
+    font-weight: bold;
 }
 
 .sort_active {
     font-weight: bolder;
-    background-color: rgb(211, 224, 100);
-    background-color: green;
+    background-color: rgb(40, 40, 40);
+    color: rgb(211, 224, 100);
     border: none;
     font-size: 11px;
     cursor: pointer;
     border-radius: 10px;
     margin: 0px 2px 0px 2px;
+    transition: all 0.2s ease-in-out;
 }
 
 .sort_active:active {
@@ -45,6 +55,8 @@
     border-radius: 10px;
     margin: 0px 2px 0px 2px;
     background-color: rgb(211, 224, 100);
+    color: rgb(40, 40, 40);
+    transition: all 0.2s ease-in-out;
 }
 
 .sort_inactive:active {
@@ -52,15 +64,20 @@
 }
 
 .button {
-    font-size: 11px;
+    background-color: rgb(40, 40, 40);
+    color: rgb(211, 224, 100);
+    font-size: 13px;
     font-weight: bolder;
     border-radius: 10px;
     border: none;
-    margin: 10px 6px 6px 6px;
+    margin: 10px 6px 10px 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .button:hover {
-    background-color: rgb(185, 185, 185);
+    background-color: rgb(211, 224, 100);
+    color: rgb(40, 40, 40);
 }
 
 .button:active {

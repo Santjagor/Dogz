@@ -73,7 +73,7 @@ export default function SearchOptions() {
     }
 
     return (
-        <div className={styles.container}>
+        <div>
             <input className={styles.name} type="text" name="name" value={filters.name} placeholder=' Search by name' onChange={handleChange} />
 
             <div>
@@ -87,7 +87,7 @@ export default function SearchOptions() {
                 </label>
 
                 <label htmlFor="temperament">
-                    <select className={styles.menu} name="temperament" value={filters.temperament} id="temperament" onChange={handleChange}>
+                    <select  className={styles.menu} name="temperament" value={filters.temperament} id="temperament" onChange={handleChange}>
                         <option value="" disabled selected hidden>Filter by temperaments</option>
                         <option value="all">All</option>
                         {temperaments?.map(temperament => {
@@ -113,7 +113,7 @@ export default function SearchOptions() {
                     :
                     styles.sort_active}
                     name="weight" onClick={handleSort}>
-                    {filters.weight === 1 ? 'W↓' : filters.weight === -1 ? 'W↑' : 'W↓'}
+                    {filters.weight === 1 ? 'Kg↓' : filters.weight === -1 ? 'Kg↑' : 'Kg↓'}
                 </button>
 
             </div>

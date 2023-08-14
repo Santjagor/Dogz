@@ -45,17 +45,6 @@ export default function Form() {
         setErrors(validate({ ...dogData, [property]: value }))
     }
 
-    function checkImage(url) {
-        let image = new Image()
-        image.src = url
-        image.onerror = function () {
-            setDogData({
-                ...dogData,
-                image: 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'
-            })
-        }
-    }
-
     async function handleSubmit(event) {
         event.preventDefault()
         const newDog = {
@@ -73,6 +62,7 @@ export default function Form() {
             setDogData(defaultDogData)
             event.target.reset()
             alert('Dog Created!')
+            navigate('/home')
         } else {
             alert(response)
         }

@@ -39,3 +39,15 @@
     transform: rotate(360deg);
   }
 }
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgb(40, 40, 40) inset !important;
+}
+
+input:-webkit-autofill{
+    -webkit-text-fill-color: rgb(211, 224, 100) !important;
+}
