@@ -1,3 +1,8 @@
+@font-face {
+    font-family: good;
+    src: url(../../assets/fonts/GOODDP_.TTF);
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -6,4 +11,11 @@
     width: 70vw;
     max-width: 1912px;
     gap: 10px;
+}
+
+.not_found {
+    font-family: good;
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(40, 40, 40);
 }

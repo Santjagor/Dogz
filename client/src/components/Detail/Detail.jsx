@@ -25,8 +25,10 @@ export default function Detail() {
     async function onDelete() {
         const response = await axios.delete(`http://localhost:3001/dogs/${id}`)
         if (response.data === 1) {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
             alert("Dog deleted!")
         }
+
         dispatch(addAllDogs())
         navigate('/home')
     }

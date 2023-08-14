@@ -75,11 +75,10 @@ export default function SearchOptions() {
     return (
         <div>
             <input className={styles.name} type="text" name="name" value={filters.name} placeholder=' Search by name' onChange={handleChange} />
-
             <div>
                 <label htmlFor="origin">
                     <select className={styles.menu} value={filters.origin} name="origin" id="origin" onChange={handleChange}>
-                        <option value="" disabled selected hidden>Filter by origin</option>
+                        <option value="" disabled hidden>Filter by origin</option>
                         <option value="all">All</option>
                         <option value="db">My own dogs</option>
                         <option value="api">API dogs</option>
@@ -88,7 +87,7 @@ export default function SearchOptions() {
 
                 <label htmlFor="temperament">
                     <select  className={styles.menu} name="temperament" value={filters.temperament} id="temperament" onChange={handleChange}>
-                        <option value="" disabled selected hidden>Filter by temperaments</option>
+                        <option value="" disabled hidden>Filter by temperaments</option>
                         <option value="all">All</option>
                         {temperaments?.map(temperament => {
                             return (
