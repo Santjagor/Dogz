@@ -1,0 +1,85 @@
+@font-face {
+    font-family: good;
+    src: url(../../assets/fonts/GOODDP_.TTF);
+}
+
+.container {
+    background: no-repeat right url(https://i.postimg.cc/NfKCd28v/zoom-backgrounds.png);
+    background-size: cover;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    padding-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.dogz {
+    rotate: 5deg;
+    width: 35vw;
+    min-width: 300px;
+    max-width: 500px;
+    margin: 15px;
+    animation-name: slide-in-left;
+    animation-duration: .5s;
+}
+
+.welcome {
+    rotate: -5deg;
+    width: 35vw;
+    min-width: 300px;
+    max-width: 500px;
+    margin: 15px;
+    animation-name: slide-in-right;
+    animation-duration: .5s;
+}
+
+.enter {
+    background-color: rgb(40, 40, 40);
+    color: rgb(211, 224, 100);
+    border: none;
+    border-radius: 50px;
+    padding: 15px;
+    font-family: good;
+    font-size: 50px;
+    cursor: pointer;
+    animation-name: slide-in-bottom;
+    animation-duration: .5s;
+}
+
+.enter:hover {
+    scale: 1.1;
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-1000px)
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(1000px)
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(1000px)
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
