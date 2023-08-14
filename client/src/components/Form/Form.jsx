@@ -1,13 +1,13 @@
 import styles from './Form.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import validate from './validations';
 import { createDog, addAllDogs } from '../../redux/actions';
+import Modal from '../Modal/Modal';
+import { render } from 'react-dom';
 
 export default function Form() {
     const allTemperaments = useSelector((state) => state.temperaments)
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const defaultDogData = {
         name: "",
@@ -22,6 +22,7 @@ export default function Form() {
     }
     const [dogData, setDogData] = useState(defaultDogData)
     const [errors, setErrors] = useState({})
+    const [modal, setModal] = useState({ active: false })
 
     useEffect(() => {
         setErrors(validate({ ...dogData }))
@@ -61,15 +62,17 @@ export default function Form() {
             dispatch(addAllDogs())
             setDogData(defaultDogData)
             event.target.reset()
-            alert('Dog Created!')
-            navigate('/home')
+            setModal({ active: true, data: 'Dog Created!' })
         } else {
-            alert(response)
+            setModal({ active: true, data: response })
         }
     }
 
     return (
         <div className={styles.container}>
+
+            {modal.active && <Modal data={modal.data}></Modal>}
+
             <p className={styles.title}>CREATE YOUR OWN DOG</p>
             <form onSubmit={handleSubmit}>
 

@@ -1,15 +1,17 @@
 import styles from './Detail.module.css'
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import axios from "axios";
 import { useDispatch } from 'react-redux';
 import { addAllDogs } from '../../redux/actions';
+import Modal from '../Modal/Modal';
+
 
 export default function Detail() {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const { id } = useParams()
     const [dog, setDog] = useState()
+    const [modal, setModal] = useState({ active: false })
 
     useEffect(() => {
         getDetail()
@@ -26,11 +28,9 @@ export default function Detail() {
         const response = await axios.delete(`http://localhost:3001/dogs/${id}`)
         if (response.data === 1) {
             window.scrollTo({ top: 0, behavior: 'smooth' })
-            alert("Dog deleted!")
+            setModal({ active: true, data: 'Dog Deleted!' })
         }
-
         dispatch(addAllDogs())
-        navigate('/home')
     }
 
     if (dog?.temperaments && typeof dog?.temperaments === "object") {
@@ -43,6 +43,7 @@ export default function Detail() {
     if (dog?.id) {
         return (
             <div className={styles.container}>
+                {modal.active && <Modal data={modal.data}></Modal>}
                 {dog?.on_db ? <button className={styles.close_button} onClick={onDelete}>DELETE</button> : <></>}
                 <h1 className={styles.name}>{dog?.name}</h1>
                 <div className={styles.hw_container}>

@@ -1,0 +1,40 @@
+@font-face {
+    font-family: good;
+    src: url(../../assets/fonts/GOODDP_.TTF);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 60px;
+    z-index: 3;
+    width: 400px;
+    height: 300px;
+    background: linear-gradient(45deg, rgb(40, 40, 40), rgb(83, 83, 83));
+    border-radius: 50px;
+}
+
+.data {
+    color: rgb(222, 233, 126);
+    font-family: good;
+    font-size: 60px;
+}
+
+.button {
+    background-color: rgb(222, 233, 126);
+    color: rgb(40, 40, 40);
+    border: none;
+    font-family: good;
+    font-size: 30px;
+    border-radius: 15px;
+    margin: 0px 0px 15px 0px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.button:hover {
+    scale: 1.1;
+}
