@@ -13,7 +13,7 @@
 
 .name {
     font-weight: bolder;
-    width: 360px;
+    width: 365px;
     height: 20px;
     border-radius: 10px;
     border: none;
@@ -68,7 +68,7 @@ option:hover {
     font-size: 15px;
     cursor: pointer;
     border-radius: 10px;
-    margin: 0px 2px 0px 2px;
+    margin: 0px 5px 0px 5px;
     transition: all 0.2s ease-in-out;
 }
 
