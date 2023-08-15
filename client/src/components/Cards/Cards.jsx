@@ -1,8 +1,5 @@
 import styles from './Cards.module.css'
 import Card from '../Card/Card'
-import { useEffect, useState } from 'react';
-
-
 
 export default function Cards({ dogs }) {
     return (
