@@ -10,8 +10,8 @@ export default function SearchOptions() {
     const temperaments = useSelector((state) => state.temperaments)
     const defaultFilters = {
         name: "",
-        origin: "",
-        temperament: "",
+        origin: "all",
+        temperament: "all",
         alphabetic: 0,
         weight: 0,
     }
@@ -74,20 +74,20 @@ export default function SearchOptions() {
 
     return (
         <div>
-            <input className={styles.name} type="text" name="name" value={filters.name} placeholder=' Search by name' onChange={handleChange} />
-            <div>
-                <label htmlFor="origin">
+            <input className={styles.name} type="text" name="name" value={filters.name} placeholder='Search by name 🔎︎' onChange={handleChange} />
+            <div  className={styles.container}>
+                <label className={styles.tag} htmlFor="origin">Filter by origin
                     <select className={styles.menu} value={filters.origin} name="origin" id="origin" onChange={handleChange}>
-                        <option value="" disabled hidden>Filter by origin</option>
+                        {/* <option value="" disabled hidden>Filter by origin</option> */}
                         <option value="all">All</option>
                         <option value="db">My own dogs</option>
                         <option value="api">API dogs</option>
                     </select>
                 </label>
 
-                <label htmlFor="temperament">
+                <label className={styles.tag} htmlFor="temperament">Filter by temperaments
                     <select  className={styles.menu} name="temperament" value={filters.temperament} id="temperament" onChange={handleChange}>
-                        <option value="" disabled hidden>Filter by temperaments</option>
+                        {/* <option value="" disabled hidden>Filter by temperaments</option> */}
                         <option value="all">All</option>
                         {temperaments?.map(temperament => {
                             return (

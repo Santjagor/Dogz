@@ -1,6 +1,20 @@
+@font-face {
+    font-family: good;
+    src: url(../../assets/fonts/GOODDP_.TTF);
+}
+
+.container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .name {
     font-weight: bolder;
-    width: 386px;
+    width: 360px;
+    height: 20px;
     border-radius: 10px;
     border: none;
     background-color: rgb(40, 40, 40);
@@ -9,8 +23,8 @@
 }
 
 .menu {
-    width: 155px;
-    font-weight: bolder;
+    width: fit-content;
+    font-weight: bold;
     font-size: 12px;
     cursor: pointer;
     border-radius: 10px;
@@ -18,6 +32,21 @@
     margin: 0px 2px 0px 2px;
     background-color: rgb(211, 224, 100);
     color: rgb(40, 40, 40);
+}
+
+.tag {
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    width: fit-content;
+    color: rgb(211, 224, 100);
+    background-color: rgb(40, 40, 40);
+    padding: 8px;
+    margin: 0px 5px 0px 5px;
+    border-radius: 15px;
 }
 
 option:checked,
@@ -31,11 +60,12 @@ option:hover {
 }
 
 .sort_active {
+    height: 2.5em;
     font-weight: bolder;
     background-color: rgb(40, 40, 40);
     color: rgb(211, 224, 100);
     border: none;
-    font-size: 11px;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 10px;
     margin: 0px 2px 0px 2px;
@@ -47,15 +77,16 @@ option:hover {
 }
 
 .sort_inactive {
+    height: 2.5em;
+    background-color: rgb(211, 224, 100);
+    color: rgb(40, 40, 40);
     font-weight: bolder;
     background-color: none;
     border: none;
-    font-size: 11px;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 10px;
-    margin: 0px 2px 0px 2px;
-    background-color: rgb(211, 224, 100);
-    color: rgb(40, 40, 40);
+    margin: 0px 5px 0px 5px;
     transition: all 0.2s ease-in-out;
 }
 
