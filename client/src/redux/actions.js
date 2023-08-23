@@ -20,13 +20,14 @@ export function searchByName(name) {
     const endpoint = 'http://localhost:3001/dogs/search?name='
     return async (dispatch) => {
         try {
-            const response = await axios(`${endpoint}${name}`)
-            return dispatch({
-                type: SEARCH_BY_NAME,
-                payload: response.data
-            })
+            axios(`${endpoint}${name}`).then(res => {
+                return dispatch({
+                    type: SEARCH_BY_NAME,
+                    payload: res.data
+                })
+            }).catch(error=>console.log(error.message))
         } catch (error) {
-            alert(error.message)
+            
         }
     }
 }
@@ -83,7 +84,7 @@ export function weightOrder(order) {
     }
 }
 
-export function clearFilters(){
+export function clearFilters() {
     return (dispatch) => {
         try {
             return dispatch({
